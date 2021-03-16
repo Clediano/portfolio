@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/common/responsive.dart';
+import 'package:portfolio/common/routes.dart';
 
 class Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -9,43 +10,48 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     String _routeName = ModalRoute.of(context).settings.name;
-    bool _isHomePage = _routeName == '/';
+    bool _isHomePage = _routeName == Routes.homePage;
 
     if (Responsive.isDesktop(context)) {
       return AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: _isHomePage ? Colors.transparent : Color(0xFF010000),
+        backgroundColor: _isHomePage ? Colors.transparent : Color(0xFF202020),
         elevation: _isHomePage ? 0.0 : 4.0,
-        title: Row(
-          children: [
-            IconButton(
-              icon: SvgPicture.asset(
-                "assets/images/linkedin.svg",
-                width: 25,
-                height: 25,
+        title: _isHomePage
+            ? Row(
+                children: [
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "assets/images/linkedin.svg",
+                      width: 25,
+                      height: 25,
+                    ),
+                    onPressed: () {},
+                  ),
+                  SizedBox(width: 10),
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "assets/images/instagram.svg",
+                      width: 25,
+                      height: 25,
+                    ),
+                    onPressed: () {},
+                  ),
+                  SizedBox(width: 10),
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "assets/images/twitter.svg",
+                      width: 25,
+                      height: 25,
+                    ),
+                    onPressed: () {},
+                  )
+                ],
+              )
+            : IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context),
               ),
-              onPressed: () {},
-            ),
-            SizedBox(width: 10),
-            IconButton(
-              icon: SvgPicture.asset(
-                "assets/images/instagram.svg",
-                width: 25,
-                height: 25,
-              ),
-              onPressed: () {},
-            ),
-            SizedBox(width: 10),
-            IconButton(
-              icon: SvgPicture.asset(
-                "assets/images/twitter.svg",
-                width: 25,
-                height: 25,
-              ),
-              onPressed: () {},
-            )
-          ],
-        ),
         actions: [
           Row(
             children: [
@@ -54,31 +60,31 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
                 title: "Home",
                 isSelected: _isHomePage,
                 onClick: () {
-                  Navigator.pushNamed(context, "/");
+                  Navigator.pushNamed(context, Routes.homePage);
                 },
               ),
               SizedBox(width: 50),
               MenuItem(
                 title: "Articles",
-                isSelected: _routeName == '/articles',
+                isSelected: _routeName == Routes.articlesPage,
                 onClick: () {
-                  Navigator.pushNamed(context, "/articles");
+                  Navigator.pushNamed(context, Routes.articlesPage);
                 },
               ),
               SizedBox(width: 50),
               MenuItem(
                 title: "Projects",
-                isSelected: _routeName == '/projects',
+                isSelected: _routeName == Routes.projectsPage,
                 onClick: () {
-                  Navigator.pushNamed(context, "/projects");
+                  Navigator.pushNamed(context, Routes.projectsPage);
                 },
               ),
               SizedBox(width: 50),
               MenuItem(
                 title: "Contact me",
-                isSelected: _routeName == '/contact',
+                isSelected: _routeName == Routes.projectsPage,
                 onClick: () {
-                  Navigator.pushNamed(context, "/contact");
+                  Navigator.pushNamed(context, Routes.projectsPage);
                 },
               ),
               SizedBox(width: 50),
@@ -94,7 +100,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       );
     } else {
       return AppBar(
-        backgroundColor: _isHomePage ? Colors.transparent : Color(0xFF010000),
+        backgroundColor: _isHomePage ? Colors.transparent : Color(0xFF202020),
         elevation: 0,
         centerTitle: true,
         actions: [
@@ -103,13 +109,13 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {},
-            color: _isHomePage ? Colors.black : Colors.white,
+            color: Colors.white,
           ),
         ],
         title: Text(
           'CLEDIANO',
           style: TextStyle(
-            color: _isHomePage ? Colors.black : Colors.white,
+            color: Colors.white,
             fontSize: 20,
             fontFamily: 'Josefin Slab',
             fontWeight: FontWeight.w400,
@@ -122,9 +128,12 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class MenuItem extends StatelessWidget {
-  const MenuItem(
-      {Key key, this.onClick, this.isSelected = false, this.title = "Home"})
-      : super(key: key);
+  const MenuItem({
+    Key key,
+    this.onClick,
+    this.isSelected = false,
+    this.title = "Home",
+  }) : super(key: key);
 
   final Function onClick;
   final String title;
@@ -132,7 +141,7 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool _isHomePage = ModalRoute.of(context).settings.name == '/';
+    bool _isHomePage = ModalRoute.of(context).settings.name == Routes.homePage;
 
     return DecoratedBox(
       decoration: isSelected

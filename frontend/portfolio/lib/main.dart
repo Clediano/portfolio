@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/common/routes.dart';
 import 'package:portfolio/screens/article_screen.dart';
 import 'package:portfolio/screens/contact_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomeScreen(),
-        '/articles': (context) => ArticleScreen(),
-        '/projects': (context) => ProjectScreen(),
-        '/contact': (context) => ContactScreen(),
+        Routes.homePage: (context) => HomeScreen(),
+        Routes.articlesPage: (context) => ArticleScreen(),
+        Routes.projectsPage: (context) => ProjectScreen(),
+        Routes.contactPage: (context) => ContactScreen(),
       },
     );
   }

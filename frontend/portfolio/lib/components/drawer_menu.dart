@@ -5,38 +5,39 @@ import 'package:portfolio/constatants.dart';
 class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print(ModalRoute.of(context).settings.name);
+    String _routeName = ModalRoute.of(context).settings.name;
+
     return Drawer(
       child: Container(
-        color: Color(0xFF010000),
+        color: Color(0xFF202020),
         child: Padding(
           padding: const EdgeInsets.all(kDefaultPadding * 1.5),
           child: Column(
             children: [
               DrawerItem(
                 title: "HOME",
-                isSelected: ModalRoute.of(context).settings.name == "/",
+                isSelected: _routeName == "/",
                 onClick: () {
                   Navigator.pushNamed(context, "/");
                 },
               ),
               DrawerItem(
                 title: "ARTICLES",
-                isSelected: ModalRoute.of(context).settings.name == "/articles",
+                isSelected: _routeName == "/articles",
                 onClick: () {
                   Navigator.pushNamed(context, "/articles");
                 },
               ),
               DrawerItem(
                 title: "PROJECTS",
-                isSelected: ModalRoute.of(context).settings.name == "/projects",
+                isSelected: _routeName == "/projects",
                 onClick: () {
                   Navigator.pushNamed(context, "/projects");
                 },
               ),
               DrawerItem(
                 title: "CONTACT",
-                isSelected: ModalRoute.of(context).settings.name == "/contact",
+                isSelected: _routeName == "/contact",
                 onClick: () {
                   Navigator.pushNamed(context, "/contact");
                 },
