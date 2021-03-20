@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-const kTextColor = Color(0xFF191919);
-const kSecondaryTextColor = Color(0xFFE42BA5);
-
-const kSecondaryColor = Color(0xFFE42BA5);
-
 const kDefaultPadding = 20.0;
 
 final kDefaultShadow = BoxShadow(

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/routes.dart';
-import 'package:portfolio/screens/article_screen.dart';
-import 'package:portfolio/screens/contact_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
-import 'package:portfolio/screens/project_screen.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,18 +9,66 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Portfólio',
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      initialRoute: '/',
-      routes: {
-        Routes.homePage: (context) => HomeScreen(),
-        Routes.articlesPage: (context) => ArticleScreen(),
-        Routes.projectsPage: (context) => ProjectScreen(),
-        Routes.contactPage: (context) => ContactScreen(),
+    return DynamicTheme(
+      defaultBrightness: Brightness.light,
+      data: (dBrightness) {
+        return dBrightness == Brightness.light
+            ? ThemeData(
+                primarySwatch: Colors.blueGrey,
+                backgroundColor: Colors.white,
+                cardColor: Colors.blueGrey[50],
+                fontFamily: 'Josefin Slab',
+                primaryTextTheme: TextTheme(
+                  button: TextStyle(
+                    color: Colors.blueGrey,
+                    decorationColor: Colors.blueGrey[300],
+                  ),
+                  subtitle2: TextStyle(
+                    color: Colors.blueGrey[900],
+                  ),
+                  subtitle1: TextStyle(
+                    color: Colors.black,
+                  ),
+                  headline1: TextStyle(
+                    color: Colors.blueGrey[800],
+                  ),
+                ),
+                bottomAppBarColor: Colors.blueGrey[900],
+                iconTheme: IconThemeData(color: Colors.blueGrey),
+                brightness: dBrightness,
+              )
+            : ThemeData(
+                primarySwatch: Colors.blueGrey,
+                backgroundColor: Colors.blueGrey[900],
+                cardColor: Colors.black,
+                fontFamily: 'Josefin Slab',
+                primaryTextTheme: TextTheme(
+                  button: TextStyle(
+                    color: Colors.blueGrey[200],
+                    decorationColor: Colors.blueGrey[50],
+                  ),
+                  subtitle2: TextStyle(
+                    color: Colors.white,
+                  ),
+                  subtitle1: TextStyle(
+                    color: Colors.blueGrey[300],
+                  ),
+                  headline1: TextStyle(
+                    color: Colors.white70,
+                  ),
+                ),
+                bottomAppBarColor: Colors.black,
+                iconTheme: IconThemeData(color: Colors.blueGrey[200]),
+                brightness: dBrightness,
+              );
+      },
+      themedWidgetBuilder: (ctx, data) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Portfólio',
+          theme: data,
+          home: HomeScreen(),
+        );
       },
     );
   }

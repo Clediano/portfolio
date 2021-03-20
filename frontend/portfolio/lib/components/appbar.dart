@@ -1,3 +1,4 @@
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/common/responsive.dart';
@@ -10,12 +11,12 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     String _routeName = ModalRoute.of(context).settings.name;
-    bool _isHomePage = _routeName == Routes.homePage;
+    bool _isHomePage = false;
 
-    if (Responsive.isDesktop(context)) {
+    if (!Responsive.isDesktop(context)) {
       return AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: _isHomePage ? Colors.transparent : Color(0xFF202020),
+        backgroundColor: Theme.of(context).bottomAppBarColor.withOpacity(1),
         elevation: _isHomePage ? 0.0 : 4.0,
         title: _isHomePage
             ? Row(
@@ -91,7 +92,13 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
               IconButton(
                 icon: Icon(Icons.brightness_6),
                 color: _isHomePage ? Colors.black : Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  DynamicTheme.of(context).setBrightness(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Brightness.light
+                        : Brightness.dark,
+                  );
+                },
               ),
               SizedBox(width: 20),
             ],
@@ -108,7 +115,13 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
             icon: Icon(Icons.brightness_6),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onPressed: () {},
+            onPressed: () {
+              DynamicTheme.of(context).setBrightness(
+                Theme.of(context).brightness == Brightness.dark
+                    ? Brightness.light
+                    : Brightness.dark,
+              );
+            },
             color: Colors.white,
           ),
         ],
