@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
+  final double imageRadius;
+  final String imageSrc;
+
   const Avatar({
     Key key,
+    @required this.imageRadius,
+    @required this.imageSrc,
   }) : super(key: key);
 
   @override
@@ -17,14 +22,18 @@ class Avatar extends StatelessWidget {
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
-            isThemeDark ? Theme.of(context).accentColor : Theme.of(context).primaryColorDark,
-            isThemeDark ? Theme.of(context).primaryColorDark : Theme.of(context).primaryColorLight
+            isThemeDark
+                ? Theme.of(context).accentColor
+                : Theme.of(context).primaryColorDark,
+            isThemeDark
+                ? Theme.of(context).primaryColorDark
+                : Theme.of(context).primaryColorLight
           ],
         ),
       ),
       child: CircleAvatar(
-        radius: 150,
-        backgroundImage: AssetImage("assets/images/person.jpeg"),
+        radius: imageRadius,
+        backgroundImage: AssetImage(imageSrc),
       ),
     );
   }

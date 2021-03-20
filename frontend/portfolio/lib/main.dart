@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       data: (dBrightness) {
         return dBrightness == Brightness.light
             ? ThemeData(
+                accentColor: Colors.deepPurpleAccent,
                 primarySwatch: Colors.blueGrey,
                 backgroundColor: Colors.white,
                 cardColor: Colors.blueGrey[50],
@@ -38,9 +39,10 @@ class MyApp extends StatelessWidget {
                 brightness: dBrightness,
               )
             : ThemeData(
+                accentColor: Colors.deepPurpleAccent,
                 primarySwatch: Colors.blueGrey,
                 backgroundColor: Colors.blueGrey[900],
-                cardColor: Colors.black,
+                cardColor: Colors.black87,
                 fontFamily: 'Josefin Slab',
                 primaryTextTheme: TextTheme(
                   button: TextStyle(

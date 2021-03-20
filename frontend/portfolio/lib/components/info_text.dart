@@ -16,16 +16,16 @@ class InfoText extends StatelessWidget {
         Text(
           '$type: ',
           style: TextStyle(
-            color: Colors.blueGrey[300],
-            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
           ),
         ),
         Flexible(
-          child: Text(
+          child: SelectableText(
             text,
             style: TextStyle(
-              color: Colors.blueGrey[100],
-              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              fontSize: 17,
             ),
           ),
         )
