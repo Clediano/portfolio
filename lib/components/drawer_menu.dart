@@ -19,6 +19,10 @@ class DrawerMenu extends StatelessWidget {
     this.keyContato,
   }) : super(key: key);
 
+  _closeDrawer(context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -32,24 +36,28 @@ class DrawerMenu extends StatelessWidget {
                 title: "Início",
                 onClick: () {
                   scrollToPosition(keyInicio, scrollController);
+                  _closeDrawer(context);
                 },
               ),
               DrawerItem(
                 title: "Sobre mim",
                 onClick: () {
                   scrollToPosition(keySobre, scrollController);
+                  _closeDrawer(context);
                 },
               ),
               DrawerItem(
                 title: "Experiência",
                 onClick: () {
                   scrollToPosition(keyExperiencia, scrollController);
+                  _closeDrawer(context);
                 },
               ),
               DrawerItem(
                 title: "Contato",
                 onClick: () {
                   scrollToPosition(keyContato, scrollController);
+                  _closeDrawer(context);
                 },
               ),
               Expanded(

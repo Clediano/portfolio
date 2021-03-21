@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicTheme(
-      defaultBrightness: Brightness.light,
+      defaultBrightness: Brightness.dark,
       data: (dBrightness) {
         return dBrightness == Brightness.light
             ? ThemeData(

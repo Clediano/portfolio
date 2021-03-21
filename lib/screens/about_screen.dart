@@ -61,7 +61,7 @@ class Sobre extends StatelessWidget {
               textAlign: TextAlign.justify,
               text: TextSpan(
                   text:
-                      "Sou formado em ciencia da computação e pós-graduando em desenvolvimento de software com Java. Minha carreira na área iniciou em ",
+                      "Sou formado em Ciência da Computação e pós-graduando em Desenvolvimento de Software com Java. Minha carreira na área iniciou em ",
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: isThemeDark
                             ? Theme.of(context).primaryColor
@@ -80,9 +80,9 @@ class Sobre extends StatelessWidget {
                     ),
                     TextSpan(
                         text:
-                            ", trabalhando em uma empresa de desenvolvimento como assistente de apoio ao usuário. "),
+                            ", trabalhando em uma empresa de desenvolvimento como Assistente de Apoio ao Usuário. "),
                     TextSpan(
-                      text: "Gosto dos desafios que a programaçao impõem, ",
+                      text: "Gosto dos desafios que a programação impõe, ",
                       style: Theme.of(context).textTheme.bodyText2.copyWith(
                             color: isThemeDark
                                 ? Theme.of(context).primaryColor
@@ -91,7 +91,7 @@ class Sobre extends StatelessWidget {
                           ),
                     ),
                     TextSpan(
-                      text: "resolver uma dor ",
+                      text: "resolver a dor de alguém ",
                       style: Theme.of(context).textTheme.bodyText2.copyWith(
                           color: isThemeDark
                               ? Theme.of(context).primaryColor

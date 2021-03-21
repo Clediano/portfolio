@@ -325,7 +325,7 @@ class Contato extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 InfoText(
-                  title: 'Email',
+                  title: 'E-mail',
                   text: 'cledianoestefenon@gmail.com',
                   isClicable: false,
                 )
@@ -361,7 +361,7 @@ class Contato extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 InfoText(
-                  title: 'Email',
+                  title: 'E-mail',
                   text: 'cledianoestefenon@gmail.com',
                   isClicable: false,
                 )
