@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Get packages
-        run: flutter pub get
+        run: dart pub get
         
       - name: Build project
         run: flutter build web        
