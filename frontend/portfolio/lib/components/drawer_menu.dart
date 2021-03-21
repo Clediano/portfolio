@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/common/scroll_to.dart';
 import 'package:portfolio/components/drawer_item.dart';
 import 'package:portfolio/constatants.dart';
 
 class DrawerMenu extends StatelessWidget {
+  final ScrollController scrollController;
+
+  const DrawerMenu({Key key, this.scrollController}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    String _routeName = ModalRoute.of(context).settings.name;
-
     return Drawer(
       child: Container(
         color: Color(0xFF202020),
@@ -15,41 +18,31 @@ class DrawerMenu extends StatelessWidget {
           child: Column(
             children: [
               DrawerItem(
-                title: "HOME",
-                isSelected: _routeName == "/",
+                title: "Home",
                 onClick: () {
-                  Navigator.pushNamed(context, "/");
+                  scrollToPosition(0, scrollController);
                 },
               ),
               DrawerItem(
-                title: "ARTICLES",
-                isSelected: _routeName == "/articles",
+                title: "Sobre mim",
                 onClick: () {
-                  Navigator.pushNamed(context, "/articles");
+                  scrollToPosition(800, scrollController);
                 },
               ),
               DrawerItem(
-                title: "PROJECTS",
-                isSelected: _routeName == "/projects",
+                title: "Contato",
                 onClick: () {
-                  Navigator.pushNamed(context, "/projects");
-                },
-              ),
-              DrawerItem(
-                title: "CONTACT",
-                isSelected: _routeName == "/contact",
-                onClick: () {
-                  Navigator.pushNamed(context, "/contact");
+                  scrollToPosition(1511.6, scrollController);
                 },
               ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    'Copyright © 2021 | CLEDIANO',
+                    '© 2021 | CLEDIANO',
                     style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white70,
+                      color: Theme.of(context).primaryColorLight,
+                      fontSize: 15,
                     ),
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/about_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 
@@ -70,6 +71,11 @@ class MyApp extends StatelessWidget {
           title: 'Portfólio',
           theme: data,
           home: HomeScreen(),
+          routes: {
+            '/home': (context) => FirstSectionHome(),
+            '/sobre': (context) => Sobre(),
+            '/contato': (context) => Contato(),
+          },
         );
       },
     );

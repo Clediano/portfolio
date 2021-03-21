@@ -1,191 +1,144 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/common/responsive.dart';
-import 'package:portfolio/common/routes.dart';
+import 'package:portfolio/common/scroll_to.dart';
+import 'package:portfolio/components/logotipo.dart';
+import 'package:portfolio/components/topbar_item.dart';
 
-class Appbar extends StatelessWidget implements PreferredSizeWidget {
+class Appbar extends StatefulWidget implements PreferredSizeWidget {
+  final double opacity;
+  final ScrollController scrollController;
+
+  const Appbar({
+    Key key,
+    @required this.opacity,
+    @required this.scrollController,
+  }) : super(key: key);
+
   @override
   Size get preferredSize => const Size.fromHeight(60);
 
   @override
-  Widget build(BuildContext context) {
-    String _routeName = ModalRoute.of(context).settings.name;
-    bool _isHomePage = false;
+  _AppbarState createState() => _AppbarState();
+}
 
-    if (!Responsive.isDesktop(context)) {
+class _AppbarState extends State<Appbar> {
+  final List _isHovering = [false, false, false];
+
+  @override
+  Widget build(BuildContext context) {
+    bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
+    Size screenSize = MediaQuery.of(context).size;
+    bool isSmallScreen = !Responsive.isDesktop(context);
+
+    if (isSmallScreen) {
       return AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Theme.of(context).bottomAppBarColor.withOpacity(1),
-        elevation: _isHomePage ? 0.0 : 4.0,
-        title: _isHomePage
-            ? Row(
-                children: [
-                  IconButton(
-                    icon: SvgPicture.asset(
-                      "assets/images/linkedin.svg",
-                      width: 25,
-                      height: 25,
-                    ),
-                    onPressed: () {},
-                  ),
-                  SizedBox(width: 10),
-                  IconButton(
-                    icon: SvgPicture.asset(
-                      "assets/images/instagram.svg",
-                      width: 25,
-                      height: 25,
-                    ),
-                    onPressed: () {},
-                  ),
-                  SizedBox(width: 10),
-                  IconButton(
-                    icon: SvgPicture.asset(
-                      "assets/images/twitter.svg",
-                      width: 25,
-                      height: 25,
-                    ),
-                    onPressed: () {},
-                  )
-                ],
-              )
-            : IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              ),
+        backgroundColor:
+            Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
+        elevation: 0,
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(
+            Icons.menu,
+            color: isThemeDark
+                ? Colors.white
+                : widget.opacity > 0.4
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
+          ),
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+        ),
         actions: [
-          Row(
-            children: [
-              SizedBox(width: 50),
-              MenuItem(
-                title: "Home",
-                isSelected: _isHomePage,
-                onClick: () {
-                  Navigator.pushNamed(context, Routes.homePage);
-                },
-              ),
-              SizedBox(width: 50),
-              MenuItem(
-                title: "Articles",
-                isSelected: _routeName == Routes.articlesPage,
-                onClick: () {
-                  Navigator.pushNamed(context, Routes.articlesPage);
-                },
-              ),
-              SizedBox(width: 50),
-              MenuItem(
-                title: "Projects",
-                isSelected: _routeName == Routes.projectsPage,
-                onClick: () {
-                  Navigator.pushNamed(context, Routes.projectsPage);
-                },
-              ),
-              SizedBox(width: 50),
-              MenuItem(
-                title: "Contact me",
-                isSelected: _routeName == Routes.projectsPage,
-                onClick: () {
-                  Navigator.pushNamed(context, Routes.projectsPage);
-                },
-              ),
-              SizedBox(width: 50),
-              IconButton(
-                icon: Icon(Icons.brightness_6),
-                color: _isHomePage ? Colors.black : Colors.white,
-                onPressed: () {
-                  DynamicTheme.of(context).setBrightness(
-                    Theme.of(context).brightness == Brightness.dark
-                        ? Brightness.light
-                        : Brightness.dark,
-                  );
-                },
-              ),
-              SizedBox(width: 20),
-            ],
-          )
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: IconButton(
+              icon: Icon(Icons.brightness_6),
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              color: isThemeDark
+                  ? Colors.white
+                  : widget.opacity > 0.4
+                      ? Theme.of(context).primaryColorLight
+                      : Theme.of(context).primaryColorDark,
+              onPressed: () {
+                DynamicTheme.of(context).setBrightness(
+                  isThemeDark ? Brightness.light : Brightness.dark,
+                );
+              },
+            ),
+          ),
         ],
+        title: Logotipo(isThemeDark: isThemeDark, opacity: widget.opacity),
       );
     } else {
       return AppBar(
-        backgroundColor: _isHomePage ? Colors.transparent : Color(0xFF202020),
-        elevation: 0,
-        centerTitle: true,
+        automaticallyImplyLeading: false,
+        backgroundColor:
+            Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
+        elevation: widget.opacity,
+        title: Logotipo(isThemeDark: isThemeDark, opacity: widget.opacity),
         actions: [
+          TopbarItem(
+            title: "Sobre mim",
+            opacity: widget.opacity,
+            isHovering: _isHovering[0],
+            onHover: (value) {
+              setState(() {
+                value ? _isHovering[0] = true : _isHovering[0] = false;
+              });
+            },
+            onClick: () {
+              scrollToPosition(800, widget.scrollController);
+            },
+          ),
+          SizedBox(width: 20),
+          TopbarItem(
+            title: "Experiência",
+            opacity: widget.opacity,
+            isHovering: _isHovering[1],
+            onHover: (value) {
+              setState(() {
+                value ? _isHovering[1] = true : _isHovering[1] = false;
+              });
+            },
+            onClick: () {
+              scrollToPosition(1400, widget.scrollController);
+            },
+          ),
+          SizedBox(width: 20),
+          TopbarItem(
+            title: "Contato",
+            opacity: widget.opacity,
+            isHovering: _isHovering[2],
+            onHover: (value) {
+              setState(() {
+                value ? _isHovering[2] = true : _isHovering[2] = false;
+              });
+            },
+            onClick: () {
+              scrollToPosition(1511.6, widget.scrollController);
+            },
+          ),
+          SizedBox(width: screenSize.width - 800),
           IconButton(
             icon: Icon(Icons.brightness_6),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
+            color: isThemeDark
+                ? Colors.white
+                : widget.opacity > 0.4
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
             onPressed: () {
               DynamicTheme.of(context).setBrightness(
-                Theme.of(context).brightness == Brightness.dark
-                    ? Brightness.light
-                    : Brightness.dark,
+                isThemeDark ? Brightness.light : Brightness.dark,
               );
             },
-            color: Colors.white,
           ),
         ],
-        title: Text(
-          'CLEDIANO',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontFamily: 'Josefin Slab',
-            fontWeight: FontWeight.w400,
-            letterSpacing: 3,
-          ),
-        ),
       );
     }
-  }
-}
-
-class MenuItem extends StatelessWidget {
-  const MenuItem({
-    Key key,
-    this.onClick,
-    this.isSelected = false,
-    this.title = "Home",
-  }) : super(key: key);
-
-  final Function onClick;
-  final String title;
-  final bool isSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    bool _isHomePage = ModalRoute.of(context).settings.name == Routes.homePage;
-
-    return DecoratedBox(
-      decoration: isSelected
-          ? BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: _isHomePage ? Colors.black : Colors.white,
-                  width: 2,
-                ),
-              ),
-            )
-          : BoxDecoration(
-              border: Border(
-                bottom: BorderSide.none,
-              ),
-            ),
-      child: TextButton(
-        child: Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        style: TextButton.styleFrom(
-          shadowColor: Colors.transparent,
-          primary: _isHomePage ? Colors.black : Colors.white,
-          onSurface: Colors.transparent,
-          padding: EdgeInsets.all(7),
-        ),
-        onPressed: onClick,
-      ),
-    );
   }
 }

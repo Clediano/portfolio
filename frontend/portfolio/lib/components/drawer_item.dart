@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DrawerItem extends StatelessWidget {
+class DrawerItem extends StatefulWidget {
   final String title;
   final Function onClick;
   final bool isSelected;
@@ -13,44 +13,54 @@ class DrawerItem extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _DrawerItemState createState() => _DrawerItemState();
+}
+
+class _DrawerItemState extends State<DrawerItem> {
+  final List _isHovering = [false];
+
+  @override
   Widget build(BuildContext context) {
+    bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: DecoratedBox(
-        decoration: isSelected
-            ? BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: Colors.white70,
-                    width: 1,
+      child: Row(
+        children: [
+          InkWell(
+            onTap: widget.onClick,
+            onHover: (value) {
+              setState(() {
+                value ? _isHovering[0] = true : _isHovering[0] = false;
+              });
+            },
+            child: Column(
+              children: [
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                    color: isThemeDark
+                        ? Colors.white
+                        : Theme.of(context).primaryColorLight,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-              )
-            : BoxDecoration(
-                border: Border(
-                  bottom: BorderSide.none,
-                ),
-              ),
-        child: Row(
-          mainAxisAlignment:
-              isSelected ? MainAxisAlignment.center : MainAxisAlignment.start,
-          children: [
-            InkWell(
-              onTap: onClick,
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 16,
-                  fontFamily: 'Josefin Slab',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
-                ),
-                textAlign: TextAlign.start,
-              ),
+                SizedBox(height: 5),
+                Visibility(
+                  maintainAnimation: true,
+                  maintainState: true,
+                  maintainSize: true,
+                  visible: _isHovering[0],
+                  child: Container(
+                    height: 2,
+                    width: 20,
+                    color: Colors.white,
+                  ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
