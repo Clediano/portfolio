@@ -1,36 +1,20 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Portfolio
-
+name: Flutter Web
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+    branches:
+      - master
 jobs:
   build:
+    name: Build Web
+    env:
+      my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
-      - name: Install dependencies
-        run: flutter pub get
-        
-      - name: Build project
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+      - run: flutter config --enable-web
+      - run: flutter pub get
       - run: flutter build web
-      
-      - name: Finishing...
       - run: |
           cd build/web
           git init
@@ -40,7 +24,7 @@ jobs:
           git config --global user.email cledianoestefenon@gmail.com
           git config --global user.name Clediano
           git status
-          # change this remote url for examle your remote url is https://github.com/Clediano/portfolio.git then the following:
+          # change this remote url for examle your remote url is https://github.com/onatcipli/flutter_web.git then the following:
           git remote add origin https://${{secrets.commit_secret}}@github.com/Clediano/portfolio.git
           git checkout -b gh-pages
           git add --all
