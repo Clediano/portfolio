@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Prepare machine
         run: |
-          sudo apt-get install dart
+          sudo ln -s /usr/lib/dart/bin/pub /usr/bin/pub
         
       - name: Get packages
         run: dart pub get
