@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
-        physics: ClampingScrollPhysics(),
+        // physics: ClampingScrollPhysics(),
         child: Column(
           children: [
             FirstSectionHome(key: _keyInicio),
@@ -243,7 +243,7 @@ class Experiencia extends StatelessWidget {
                           title: Text(
                             experiencia.title,
                             maxLines: 2,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 17),
                           ),
                           subtitle: Text(
                             experiencia.subTitle,
