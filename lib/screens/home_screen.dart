@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/common/data.dart';
 import 'package:portfolio/common/responsive.dart';
 import 'package:portfolio/components/appbar.dart';
@@ -11,7 +10,6 @@ import 'package:portfolio/components/desktop_first_section_home.dart';
 import 'package:portfolio/components/drawer_menu.dart';
 import 'package:portfolio/components/info_text.dart';
 import 'package:portfolio/components/mobile_first_section_home.dart';
-import 'package:portfolio/components/scrollbar.dart';
 import 'package:portfolio/constatants.dart';
 import 'package:portfolio/models/Experience.dart';
 import 'package:portfolio/screens/about_screen.dart';
@@ -85,46 +83,41 @@ class _HomeScreenState extends State<HomeScreen> {
         keyExperiencia: _keyExperiencia,
         keyContato: _keyContato,
       ),
-      body: WebScrollbar(
-        backgroundColor: Colors.blueGrey.withOpacity(0.3),
-        width: 10,
+      body: SingleChildScrollView(
         controller: _scrollController,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          physics: ClampingScrollPhysics(),
-          child: Column(
-            children: [
-              FirstSectionHome(key: _keyInicio),
-              SectionBody(
-                key: _keySobre,
-                title: "Sobre mim",
-                backgroundColor: Theme.of(context).primaryColorLight,
-                textColor: Theme.of(context).primaryColorDark,
-                titleColor: Theme.of(context).primaryColorDark,
-                body: Sobre(),
-              ),
-              SectionBody(
-                key: _keyExperiencia,
-                title: "Experiência",
-                textColor: isThemeDark
-                    ? Theme.of(context).primaryColorLight
-                    : Theme.of(context).primaryColorDark,
-                titleColor: isThemeDark
-                    ? Theme.of(context).primaryColorLight
-                    : Theme.of(context).primaryColorDark,
-                body: Experiencia(),
-              ),
-              SectionBody(
-                key: _keyContato,
-                title: "Contato",
-                backgroundColor: Theme.of(context).primaryColorLight,
-                textColor: Theme.of(context).primaryColorDark,
-                titleColor: Theme.of(context).primaryColorDark,
-                body: Contato(),
-              ),
-              BottomBar()
-            ],
-          ),
+        physics: ClampingScrollPhysics(),
+        child: Column(
+          children: [
+            FirstSectionHome(key: _keyInicio),
+            SectionBody(
+              key: _keySobre,
+              title: "Sobre mim",
+              backgroundColor: Theme.of(context).primaryColorLight,
+              textColor: Theme.of(context).primaryColorDark,
+              titleColor: Theme.of(context).primaryColorDark,
+              body: Sobre(),
+            ),
+            SectionBody(
+              key: _keyExperiencia,
+              title: "Experiência",
+              textColor: isThemeDark
+                  ? Theme.of(context).primaryColorLight
+                  : Theme.of(context).primaryColorDark,
+              titleColor: isThemeDark
+                  ? Theme.of(context).primaryColorLight
+                  : Theme.of(context).primaryColorDark,
+              body: Experiencia(),
+            ),
+            SectionBody(
+              key: _keyContato,
+              title: "Contato",
+              backgroundColor: Theme.of(context).primaryColorLight,
+              textColor: Theme.of(context).primaryColorDark,
+              titleColor: Theme.of(context).primaryColorDark,
+              body: Contato(),
+            ),
+            BottomBar()
+          ],
         ),
       ),
     );
