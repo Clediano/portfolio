@@ -189,6 +189,20 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class FirstSectionHome extends StatelessWidget {
+  void _baixarCV() {
+    launch(
+      "https://drive.google.com/file/d/1MJ3ELdHuXZPO-lmpFVnjff4WiNhAeOzy/view?usp=sharing",
+      universalLinksOnly: true,
+    );
+  }
+
+  void _verGithub() {
+    launch(
+      "https://github.com/Clediano",
+      universalLinksOnly: true,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     bool isDesktop = Responsive.isDesktop(context);
@@ -245,9 +259,7 @@ class FirstSectionHome extends StatelessWidget {
                           children: [
                             ElevatedButton.icon(
                               onPressed: () {
-                                launch(
-                                    "https://drive.google.com/file/d/1MJ3ELdHuXZPO-lmpFVnjff4WiNhAeOzy/view?usp=sharing",
-                                    universalLinksOnly: true);
+                                _baixarCV();
                               },
                               icon: Icon(
                                 Icons.cloud_download_outlined,
@@ -276,8 +288,7 @@ class FirstSectionHome extends StatelessWidget {
                             SizedBox(width: 10),
                             TextButton.icon(
                               onPressed: () {
-                                launch("https://github.com/Clediano",
-                                    universalLinksOnly: true);
+                                _verGithub();
                               },
                               icon: SvgPicture.asset(
                                 "assets/images/github.svg",
@@ -380,7 +391,9 @@ class FirstSectionHome extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               ElevatedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _baixarCV();
+                                },
                                 icon: Icon(
                                   Icons.cloud_download_outlined,
                                 ),
@@ -408,7 +421,9 @@ class FirstSectionHome extends StatelessWidget {
                               ),
                               SizedBox(width: 10),
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _verGithub();
+                                },
                                 icon: SvgPicture.asset(
                                   "assets/images/github.svg",
                                   color: isThemeDark
@@ -518,7 +533,9 @@ class FirstSectionHome extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ElevatedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _baixarCV();
+                                },
                                 icon: Icon(
                                   Icons.cloud_download_outlined,
                                 ),
@@ -546,7 +563,9 @@ class FirstSectionHome extends StatelessWidget {
                               ),
                               SizedBox(width: 10),
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _verGithub();
+                                },
                                 icon: SvgPicture.asset(
                                   "assets/images/github.svg",
                                   color: isThemeDark
