@@ -25,6 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
   double _scrollPosition = 0;
   double _opacity = 0;
 
+  GlobalKey _keyInicio = GlobalKey();
+  GlobalKey _keySobre = GlobalKey();
+  GlobalKey _keyExperiencia = GlobalKey();
+  GlobalKey _keyContato = GlobalKey();
+
   _scrollListener() {
     setState(() {
       _scrollPosition = _scrollController.position.pixels;
@@ -44,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  void _calcularOpacidadeTopbar(screenSize) {
+  void _calcularOpacidadeTopbar() {
     var screenSize = MediaQuery.of(context).size;
 
     if (_scrollPosition < screenSize.height * 0.40) {
@@ -56,10 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
 
-    _calcularOpacidadeTopbar(screenSize);
+    _calcularOpacidadeTopbar();
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -67,9 +71,17 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: Appbar(
         opacity: _opacity,
         scrollController: _scrollController,
+        keyInicio: _keyInicio,
+        keySobre: _keySobre,
+        keyExperiencia: _keyExperiencia,
+        keyContato: _keyContato,
       ),
       drawer: DrawerMenu(
         scrollController: _scrollController,
+        keyInicio: _keyInicio,
+        keySobre: _keySobre,
+        keyExperiencia: _keyExperiencia,
+        keyContato: _keyContato,
       ),
       body: WebScrollbar(
         backgroundColor: Colors.blueGrey.withOpacity(0.3),
@@ -78,109 +90,38 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           controller: _scrollController,
           physics: ClampingScrollPhysics(),
-          child: Responsive(
-            desktop: Column(
-              children: [
-                FirstSectionHome(),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Sobre mim",
-                  backgroundColor: Theme.of(context).primaryColorLight,
-                  textColor: Theme.of(context).primaryColorDark,
-                  titleColor: Theme.of(context).primaryColorDark,
-                  body: Sobre(),
-                ),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Experiência",
-                  // backgroundColor: Theme.of(context).primaryColor,
-                  textColor: isThemeDark
-                      ? Theme.of(context).primaryColorLight
-                      : Theme.of(context).primaryColorDark,
-                  titleColor: isThemeDark
-                      ? Theme.of(context).primaryColorLight
-                      : Theme.of(context).primaryColorDark,
-                  body: Experiencia(),
-                ),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Contato",
-                  backgroundColor: Theme.of(context).primaryColorLight,
-                  textColor: Theme.of(context).primaryColorDark,
-                  titleColor: Theme.of(context).primaryColorDark,
-                  body: Contato(),
-                ),
-                BottomBar()
-              ],
-            ),
-            tablet: Column(
-              children: [
-                FirstSectionHome(),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Sobre mim",
-                  backgroundColor: Theme.of(context).primaryColorLight,
-                  textColor: Theme.of(context).primaryColorDark,
-                  titleColor: Theme.of(context).primaryColorDark,
-                  body: Sobre(),
-                ),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Experiência",
-                  // backgroundColor: Theme.of(context).primaryColor,
-                  textColor: isThemeDark
-                      ? Theme.of(context).primaryColorLight
-                      : Theme.of(context).primaryColorDark,
-                  titleColor: isThemeDark
-                      ? Theme.of(context).primaryColorLight
-                      : Theme.of(context).primaryColorDark,
-                  body: Experiencia(),
-                ),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Contato",
-                  backgroundColor: Theme.of(context).primaryColorLight,
-                  textColor: Theme.of(context).primaryColorDark,
-                  titleColor: Theme.of(context).primaryColorDark,
-                  body: Contato(),
-                ),
-                BottomBar()
-              ],
-            ),
-            mobile: Column(
-              children: [
-                FirstSectionHome(),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Sobre mim",
-                  backgroundColor: Theme.of(context).primaryColorLight,
-                  textColor: Theme.of(context).primaryColorDark,
-                  titleColor: Theme.of(context).primaryColorDark,
-                  body: Sobre(),
-                ),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Experiência",
-                  // backgroundColor: Theme.of(context).primaryColor,
-                  textColor: isThemeDark
-                      ? Theme.of(context).primaryColorLight
-                      : Theme.of(context).primaryColorDark,
-                  titleColor: isThemeDark
-                      ? Theme.of(context).primaryColorLight
-                      : Theme.of(context).primaryColorDark,
-                  body: Experiencia(),
-                ),
-                SectionBody(
-                  screenSize: screenSize,
-                  title: "Contato",
-                  backgroundColor: Theme.of(context).primaryColorLight,
-                  textColor: Theme.of(context).primaryColorDark,
-                  titleColor: Theme.of(context).primaryColorDark,
-                  body: Contato(),
-                ),
-                BottomBar()
-              ],
-            ),
+          child: Column(
+            children: [
+              FirstSectionHome(key: _keyInicio),
+              SectionBody(
+                key: _keySobre,
+                title: "Sobre mim",
+                backgroundColor: Theme.of(context).primaryColorLight,
+                textColor: Theme.of(context).primaryColorDark,
+                titleColor: Theme.of(context).primaryColorDark,
+                body: Sobre(),
+              ),
+              SectionBody(
+                key: _keyExperiencia,
+                title: "Experiência",
+                textColor: isThemeDark
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
+                titleColor: isThemeDark
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
+                body: Experiencia(),
+              ),
+              SectionBody(
+                key: _keyContato,
+                title: "Contato",
+                backgroundColor: Theme.of(context).primaryColorLight,
+                textColor: Theme.of(context).primaryColorDark,
+                titleColor: Theme.of(context).primaryColorDark,
+                body: Contato(),
+              ),
+              BottomBar()
+            ],
           ),
         ),
       ),
@@ -189,6 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class FirstSectionHome extends StatelessWidget {
+  const FirstSectionHome({Key key}) : super(key: key);
+
   void _baixarCV() {
     launch(
       "https://drive.google.com/file/d/1MJ3ELdHuXZPO-lmpFVnjff4WiNhAeOzy/view?usp=sharing",
@@ -212,6 +155,7 @@ class FirstSectionHome extends StatelessWidget {
 
     if (isDesktop) {
       return Row(
+        key: key,
         children: [
           Container(
             child: SizedBox(
@@ -342,6 +286,7 @@ class FirstSectionHome extends StatelessWidget {
       );
     } else if (isTablet) {
       return Positioned(
+        key: key,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -480,6 +425,7 @@ class FirstSectionHome extends StatelessWidget {
       );
     } else {
       return Positioned(
+        key: key,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -627,7 +573,6 @@ class FirstSectionHome extends StatelessWidget {
 class SectionBody extends StatelessWidget {
   const SectionBody({
     Key key,
-    @required this.screenSize,
     @required this.title,
     @required this.body,
     @required this.textColor,
@@ -635,7 +580,6 @@ class SectionBody extends StatelessWidget {
     this.backgroundColor,
   }) : super(key: key);
 
-  final Size screenSize;
   final String title;
   final Widget body;
   final Color textColor;
@@ -644,6 +588,8 @@ class SectionBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
     return Container(
       key: key,
       padding: EdgeInsets.symmetric(
@@ -682,6 +628,7 @@ class Experiencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: key,
       margin: EdgeInsets.all(20),
       child: Column(
         children: [
@@ -748,6 +695,7 @@ class Contato extends StatelessWidget {
 
     if (isDesktop) {
       return Container(
+        key: key,
         margin: EdgeInsets.all(kDefaultPadding),
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -790,6 +738,7 @@ class Contato extends StatelessWidget {
       );
     } else if (isTablet) {
       return Container(
+        key: key,
         margin: EdgeInsets.all(kDefaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -825,6 +774,7 @@ class Contato extends StatelessWidget {
       );
     } else {
       return Container(
+        key: key,
         margin: EdgeInsets.all(kDefaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

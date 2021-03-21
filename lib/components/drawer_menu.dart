@@ -5,8 +5,19 @@ import 'package:portfolio/constatants.dart';
 
 class DrawerMenu extends StatelessWidget {
   final ScrollController scrollController;
+  final GlobalKey keyInicio;
+  final GlobalKey keySobre;
+  final GlobalKey keyExperiencia;
+  final GlobalKey keyContato;
 
-  const DrawerMenu({Key key, this.scrollController}) : super(key: key);
+  const DrawerMenu({
+    Key key,
+    this.scrollController,
+    this.keyInicio,
+    this.keySobre,
+    this.keyExperiencia,
+    this.keyContato,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +29,27 @@ class DrawerMenu extends StatelessWidget {
           child: Column(
             children: [
               DrawerItem(
-                title: "Home",
+                title: "Início",
                 onClick: () {
-                  scrollToPosition(0, scrollController);
+                  scrollToPosition(keyInicio, scrollController);
                 },
               ),
               DrawerItem(
                 title: "Sobre mim",
                 onClick: () {
-                  scrollToPosition(800, scrollController);
+                  scrollToPosition(keySobre, scrollController);
+                },
+              ),
+              DrawerItem(
+                title: "Experiência",
+                onClick: () {
+                  scrollToPosition(keyExperiencia, scrollController);
                 },
               ),
               DrawerItem(
                 title: "Contato",
                 onClick: () {
-                  scrollToPosition(1511.6, scrollController);
+                  scrollToPosition(keyContato, scrollController);
                 },
               ),
               Expanded(

@@ -8,11 +8,19 @@ import 'package:portfolio/components/topbar_item.dart';
 class Appbar extends StatefulWidget implements PreferredSizeWidget {
   final double opacity;
   final ScrollController scrollController;
+  final GlobalKey keyInicio;
+  final GlobalKey keySobre;
+  final GlobalKey keyExperiencia;
+  final GlobalKey keyContato;
 
   const Appbar({
     Key key,
     @required this.opacity,
     @required this.scrollController,
+    this.keyInicio,
+    this.keySobre,
+    this.keyExperiencia,
+    this.keyContato,
   }) : super(key: key);
 
   @override
@@ -23,7 +31,7 @@ class Appbar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _AppbarState extends State<Appbar> {
-  final List _isHovering = [false, false, false];
+  final List _isHovering = [false, false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +89,7 @@ class _AppbarState extends State<Appbar> {
         title: Logotipo(isThemeDark: isThemeDark, opacity: widget.opacity),
         actions: [
           TopbarItem(
-            title: "Sobre mim",
+            title: "Início",
             opacity: widget.opacity,
             isHovering: _isHovering[0],
             onHover: (value) {
@@ -90,12 +98,12 @@ class _AppbarState extends State<Appbar> {
               });
             },
             onClick: () {
-              scrollToPosition(800, widget.scrollController);
+              scrollToPosition(widget.keyInicio, widget.scrollController);
             },
           ),
           SizedBox(width: 20),
           TopbarItem(
-            title: "Experiência",
+            title: "Sobre mim",
             opacity: widget.opacity,
             isHovering: _isHovering[1],
             onHover: (value) {
@@ -104,12 +112,12 @@ class _AppbarState extends State<Appbar> {
               });
             },
             onClick: () {
-              scrollToPosition(1400, widget.scrollController);
+              scrollToPosition(widget.keySobre, widget.scrollController);
             },
           ),
           SizedBox(width: 20),
           TopbarItem(
-            title: "Contato",
+            title: "Experiência",
             opacity: widget.opacity,
             isHovering: _isHovering[2],
             onHover: (value) {
@@ -118,7 +126,21 @@ class _AppbarState extends State<Appbar> {
               });
             },
             onClick: () {
-              scrollToPosition(1511.6, widget.scrollController);
+              scrollToPosition(widget.keyExperiencia, widget.scrollController);
+            },
+          ),
+          SizedBox(width: 20),
+          TopbarItem(
+            title: "Contato",
+            opacity: widget.opacity,
+            isHovering: _isHovering[3],
+            onHover: (value) {
+              setState(() {
+                value ? _isHovering[3] = true : _isHovering[3] = false;
+              });
+            },
+            onClick: () {
+              scrollToPosition(widget.keyContato, widget.scrollController);
             },
           ),
           SizedBox(width: screenSize.width - 800),
