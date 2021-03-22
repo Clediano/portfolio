@@ -14,3 +14,6 @@ O projeto é um portfólio pessoal desenvolvido com o objetivo de estudar e trei
 ### Observações
 - Tive o cuidado de mantem a acessibilidade;
 - Adicionei a funcionalidade de trocar o thema entre Dark e Light;
+
+### Imagens do projeto
+Clique no [link](https://portfolio-d2ae1.firebaseapp.com/#/) e seja pessoalmente ;)
