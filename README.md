@@ -6,7 +6,7 @@ O projeto é um portfólio pessoal desenvolvido com o objetivo de estudar e trei
 
 ### Implementações futuras
 - Permitir que pessoam possam escrever artigos e submeterem para publicação.
-- Usar Firestore para armazenar os textos e Storage para as imagens.
+- Usar Firebase para armazenar os textos e Storage para as imagens.
 
 
 ![](https://raw.githubusercontent.com/Clediano/portfolio/main/web/icons/icon_192.png)
