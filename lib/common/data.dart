@@ -14,7 +14,12 @@ final List<Experience> experiences = [
   ),
   Experience(
     icon: Icon(Icons.code),
-    title: "Desenvolvedor de Software(2020 - )",
+    title: "Desenvolvedor de Software(2020 - 2021)",
+    subTitle: "Duração: 2 anos e 4 meses",
+  ),
+  Experience(
+    icon: Icon(Icons.code),
+    title: "Engenheiro de Software(2021 - )",
     subTitle: "Até o momento",
   ),
 ];
