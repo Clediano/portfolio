@@ -1,16 +1,19 @@
-# portfolio
+### Apresentação
 
-A new Flutter project.
+O projeto é um portfólio pessoal desenvolvido com o objetivo de estudar e treinar o uso do framework Flutter.  Futuramente pretendo adicionar algumas páginas específicas para troca de conhecimento, como uma aba contendo artigos interessantes de minha autoria e/ou de terceiros que queiram compartilhar seu conhecimento e experiência.
 
-## Getting Started
+##### O portfólio está disponível aqui [Portfólio](https://portfolio-d2ae1.firebaseapp.com/#/)
 
-This project is a starting point for a Flutter application.
+### Implementações futuras
+- Permitir que pessoam possam escrever artigos e submeterem para publicação.
+- Usar Firebase para armazenar os textos e Storage para as imagens.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![](https://raw.githubusercontent.com/Clediano/portfolio/main/web/icons/icon_192.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Observações
+- Tive o cuidado de mantem a acessibilidade;
+- Adicionei a funcionalidade de trocar o thema entre Dark e Light;
+
+### Imagens do projeto
+Clique no [link](https://portfolio-d2ae1.firebaseapp.com/#/) e seja pessoalmente ;)
