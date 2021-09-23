@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Experience {
-  Widget icon;
-  String title;
-  String subTitle;
+  final String image;
+  final String title;
+  final String subTitle;
+  final String details;
 
   Experience({
-    @required this.icon,
+    @required this.image,
     @required this.title,
     @required this.subTitle,
+    @required this.details
   });
 }

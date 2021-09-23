@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio/common/data.dart';
@@ -85,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
-        // physics: ClampingScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         child: Column(
           children: [
             FirstSectionHome(key: _keyInicio),
@@ -129,7 +127,7 @@ class FirstSectionHome extends StatelessWidget {
 
   void _baixarCV() {
     launch(
-      "https://drive.google.com/file/d/1MJ3ELdHuXZPO-lmpFVnjff4WiNhAeOzy/view?usp=sharing",
+      "https://drive.google.com/drive/folders/1o4I9g9sUx1lWxGL_isEaZd_3aZ2TXu38?usp=sharing",
       universalLinksOnly: true,
     );
   }
@@ -239,7 +237,19 @@ class Experiencia extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: ListTile(
-                          leading: experiencia.icon,
+                          leading: Container(
+                            height: 100,
+                            width: 100,
+                            child: Image.asset(
+                              experiencia.image,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColorLight,
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
                           title: Text(
                             experiencia.title,
                             maxLines: 2,
@@ -297,7 +307,7 @@ class Contato extends StatelessWidget {
               children: [
                 InfoText(
                   title: 'Instagram',
-                  text: 'https://www.instagram.com/clediano.stf',
+                  text: 'https://www.instagram.com/e.clediano',
                   isClicable: true,
                 ),
                 SizedBox(height: 5),
@@ -338,7 +348,7 @@ class Contato extends StatelessWidget {
               children: [
                 InfoText(
                   title: 'Instagram',
-                  text: 'https://www.instagram.com/clediano.stf',
+                  text: 'https://www.instagram.com/e.clediano',
                   isClicable: true,
                 ),
                 SizedBox(height: 5),
