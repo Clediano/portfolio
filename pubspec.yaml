@@ -1,5 +1,5 @@
 name: portfolio
-description: A new Flutter project.
+description: My customized portfolio.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,18 +15,23 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.1.0
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^0.21.0-nullsafety.0
-  dynamic_theme: ^1.0.1
-  cupertino_icons: ^1.0.2
-  url_launcher: ^6.0.2
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.4
+  flutter_svg:
+  url_launcher:
+  provider:
+  shared_preferences:
+  get:
+  intl:
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +42,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

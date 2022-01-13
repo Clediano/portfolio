@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoText extends StatelessWidget {
   final String title;
   final String text;
-  final bool isClicable;
+  final bool isClickable;
   final bool useTitleOnButton;
 
   InfoText({
-    @required this.title,
-    @required this.text,
-    @required this.isClicable,
+    Key? key,
+    required this.title,
+    required this.text,
+    required this.isClickable,
     this.useTitleOnButton = false,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class InfoText extends StatelessWidget {
             color: Theme.of(context).primaryColorDark,
           ),
         ),
-        isClicable
+        isClickable
             ? TextButton.icon(
                 onPressed: () {
                   launch(text, universalLinksOnly: true);

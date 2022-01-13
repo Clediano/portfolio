@@ -1,0 +1,55 @@
+{
+    "@@locale": "pt",
+    "projectTitle": "Portfólio",
+
+    "ptLanguage": "Português",
+    "enLanguage": "Inglês",
+
+    "appBarStart": "Início",
+    "appBarAbout": "Sobre mim",
+    "appBarExperience": "Experiência",
+    "appBarContact": "Contato",
+
+    "aboutMessage1": "Olá, meu nome completo é",
+    "aboutMessage2": "e sou um desenvolvedor full stack.",
+    "aboutMessage3": "Sou formado em Ciência da Computação e pós-graduado em Desenvolvimento de Software com Java. Minha carreira na área iniciou em ",
+    "aboutMessage4": "2016",
+    "aboutMessage5": ", trabalhando em uma empresa de desenvolvimento como Assistente de Apoio ao Usuário.",
+    "aboutMessage6": "Gosto dos desafios que a programação impõe, ",
+    "aboutMessage7": "resolver a dor de alguém ",
+    "aboutMessage8": "através de código ",
+    "aboutMessage9": "é tão satisfatório quanto beber uma xícara de café!",
+
+    "startMessage1": "Olá, meu nome é",
+    "startMessage2": "e sou desenvolvedor de software",
+    "startButtonCV": "Ver CV",
+    "startButtonGitHub": "Ver GitHub",
+    "startButtonGitHubMobile": "GitHub",
+
+    "companyKnowMoreButton": "Saiba mais",
+    "companyCloseButton": "Fechar",
+    "companyDetail1": "Capgemini é líder global em serviços de consultoria, transformação digital, tecnologia e engenharia. O Grupo está na vanguarda da inovação para abordar toda a amplitude de oportunidades dos clientes no mundo em evolução da nuvem, digital e plataformas.",
+    "companyDuration1": "dez de 2021 - o momento",
+    "experienceTitle1": "Consultor de Soluções Customizadas",
+    "experienceSubTitle1": "Até o momento",
+    "experienceDescription1": "Atuo na equipe frontend da Bradesco Cartões. Aqui desenvolvemos funcionalidades para uma plataforma online de gerenciamento de cartões para pessoas jurídicas. Estamos usando a tecnologia ReactJS, criando componentes reutilizáveis com bibliotecas como Redux para gerenciamento de estado.",
+
+    "companyDetail2": "A Evoluum nasceu em 2018, como uma fábrica de software, pelas mãos de duas pessoas que perceberam que o modelo tradicional de fábrica de software era ultrapassado e problemático, pois fábrica, normalmente gera código fonte, e não valor. Foi então que assumiram o desafio de evoluir a forma como se faz software através do outsourcing.",
+    "companyDuration2": "Duração: 8 meses",
+    "experienceTitle2": "Engenheiro de Software",
+    "experienceSubTitle2": "mai de 2021 - dez de 2021",
+    "experienceDescription2": "Trabalhei em um projeto com microsserviços utilizando tecnologias como Java e Spring-Boot, nele eu atuei como desenvolvedor full-stack, participando de todas as etapas do desenvolvimento. Utilizamos Apache-Kafka para a comunicação entre os microsserviços e Flutter para o desenvolvimento do aplicativo Konta(aplicativo do setor varejista de uma rede de lojas de Santa Catarina). Participei de reuniões de melhoria contínua onde discutíamos em equipe qual seria a melhor abordagem para determinada situação, discutíamos sobre nossos processos internos e o que fazer para melhorá-lo. Eu era apenas um dev dentro de uma squad incrível, buscávamos sempre o nosso melhor, portanto, crescíamos e desenvolvíamos nossas skills juntos.",
+
+    "companyDetail3": "Como cada Cliente é único e merece um atendimento exclusivo, o conceito ‘one to one’ que respeita a individualidade de cada organização está presente nos mais de 25 anos de atuação da MICROSYS®. Atenta a evolução das necessidades do mercado e criando sempre novas formas de aumentar o potencial de agir das pessoas e das organizações, a MICROSYS® investe constantemente na qualificação e aprimoramento de seus profissionais, desenvolvendo soluções inovadoras, dinâmicas e intuitivas.",
+    "companyDuration3": "Duração: 5 anos e 3 meses",
+    "experienceTitle31": "Desenvolvedor de Software",
+    "experienceSubTitle31": "ago de 2020 - mai de 2021 · 10 meses",
+    "experienceDescription31": "Trabalhei com o desenvolvimento e manutenção de sistemas de gestão comercial e industrial. Fazia parte da equipe de desenvolvimento Web e Mobile da empresa. Ajudei na definição de tecnologias e padrões de projetos dos sistemas. Procurava interagir com os colegas de forma a manter o ambiente descontraído e acolhedor, entendo que desta forma a comunicação entre a equipe é maior e facilita nos momentos em que preciso ajudar ou ser ajudado. Tive a oportunidade de trabalhar em uma equipe incrível, onde pude colocar em prática vários conceitos e ferramentas, além de aprimorar minhas soft skills com meus amigos.",
+    "experienceTitle32": "Assistente de Programação",
+    "experienceSubTitle32": "mai de 2018 - ago de 2020 · 2 anos 4 meses",
+    "experienceDescription32": "Trabalhei com o desenvolvimento de aplicações Web Comerciais e Industriais, utilizando tecnologias baseadas nas linguagens Java e JavaScript, fazendo uso de frameworks e bibliotecas como Spring-Boot, ReactJS e Flutter para criar API's REST, aplicações web e para celulares.",
+    "experienceTitle33": "Assistente de Apoio ao Usuário",
+    "experienceSubTitle33": "mai de 2016 - mai de 2018 · 2 anos 1 mês",
+    "experienceDescription33": "Iniciei da minha carreira na área de TI. Já estudava Ciência da Computação e tinha alguma noção de lógica de programação. Não demorei muito pra começar a colocar a mão na massa, ou melhor dizendo, no código! Desenvolvia projetos pessoais com as tecnologias que eu estudava na faculdade, desde cedo me desafiando."
+
+}

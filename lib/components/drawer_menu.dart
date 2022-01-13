@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/scroll_to.dart';
 import 'package:portfolio/components/drawer_item.dart';
-import 'package:portfolio/constatants.dart';
+import 'package:portfolio/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerMenu extends StatelessWidget {
-  final ScrollController scrollController;
-  final GlobalKey keyInicio;
-  final GlobalKey keySobre;
-  final GlobalKey keyExperiencia;
-  final GlobalKey keyContato;
-
-  const DrawerMenu({
-    Key key,
-    this.scrollController,
-    this.keyInicio,
-    this.keySobre,
-    this.keyExperiencia,
-    this.keyContato,
-  }) : super(key: key);
+  const DrawerMenu({Key? key}) : super(key: key);
 
   _closeDrawer(context) {
     Navigator.pop(context);
@@ -25,38 +13,40 @@ class DrawerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DateTime date = DateTime.now();
+
     return Drawer(
       child: Container(
         color: Color(0xFF202020),
         child: Padding(
-          padding: const EdgeInsets.all(kDefaultPadding * 1.5),
+          padding: const EdgeInsets.all(pDefaultPadding * 1.5),
           child: Column(
             children: [
               DrawerItem(
-                title: "Início",
+                title: AppLocalizations.of(context)!.appBarStart,
                 onClick: () {
-                  scrollToPosition(keyInicio, scrollController);
+                  scrollToPosition(startScreen);
                   _closeDrawer(context);
                 },
               ),
               DrawerItem(
-                title: "Sobre mim",
+                title: AppLocalizations.of(context)!.appBarAbout,
                 onClick: () {
-                  scrollToPosition(keySobre, scrollController);
+                  scrollToPosition(aboutScreen);
                   _closeDrawer(context);
                 },
               ),
               DrawerItem(
-                title: "Experiência",
+                title: AppLocalizations.of(context)!.appBarExperience,
                 onClick: () {
-                  scrollToPosition(keyExperiencia, scrollController);
+                  scrollToPosition(experienceScreen);
                   _closeDrawer(context);
                 },
               ),
               DrawerItem(
-                title: "Contato",
+                title: AppLocalizations.of(context)!.appBarContact,
                 onClick: () {
-                  scrollToPosition(keyContato, scrollController);
+                  scrollToPosition(contactScreen);
                   _closeDrawer(context);
                 },
               ),
@@ -64,7 +54,7 @@ class DrawerMenu extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    '© 2021 | CLEDIANO',
+                    '© ${date.year} | ${pDeveloperName.toUpperCase()}',
                     style: TextStyle(
                       color: Theme.of(context).primaryColorLight,
                       fontSize: 15,

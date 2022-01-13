@@ -1,32 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/components/avatar.dart';
-import 'package:portfolio/constatants.dart';
+import 'package:portfolio/constants.dart';
 
-class Sobre extends StatelessWidget {
-  const Sobre({
-    Key key,
+class About extends StatelessWidget {
+  const About({
+    Key? key,
   }) : super(key: key);
+
+  TextSpan buildSimpleTextSpan(
+      BuildContext context, bool isDarkTheme, String text,
+      {List<InlineSpan>? children}) {
+    return TextSpan(
+      text: text,
+      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            color: isDarkTheme
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).primaryColorDark,
+            fontSize: 20,
+          ),
+      children: children,
+    );
+  }
+
+  TextSpan buildBoldSimpleTextSpan(
+    BuildContext context,
+    bool isDarkTheme,
+    String text,
+  ) {
+    return TextSpan(
+      text: text,
+      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            color: isDarkTheme
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).primaryColorDark,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
+    final bool isDarkTheme = Get.isDarkMode;
 
     return Container(
-      margin: EdgeInsets.all(kDefaultPadding),
-      // padding: EdgeInsets.all(62),
+      margin: EdgeInsets.all(pDefaultPadding),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Avatar(imageRadius: 75, imageSrc: "assets/images/person.jpeg"),
+          const Avatar(imageRadius: 75, imageSrc: "assets/images/person.jpeg"),
           Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: kDefaultPadding),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: pDefaultPadding,
+                  ),
                   child: Text(
-                    "Olá, meu nome completo é",
+                    AppLocalizations.of(context)!.aboutMessage1,
                     style: TextStyle(
                       fontSize: 20,
                       color: Theme.of(context).primaryColorDark,
@@ -36,7 +70,7 @@ class Sobre extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "CLEDIANO ESTEFENON",
+                  pDeveloperFullName.toUpperCase(),
                   style: TextStyle(
                     fontSize: 45,
                     color: Theme.of(context).primaryColorDark,
@@ -44,7 +78,7 @@ class Sobre extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "e sou um desenvolvedor full stack.",
+                  AppLocalizations.of(context)!.aboutMessage2,
                   style: TextStyle(
                     fontSize: 20,
                     color: Theme.of(context).primaryColorDark,
@@ -54,73 +88,48 @@ class Sobre extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
             width: 540,
             child: RichText(
               textAlign: TextAlign.justify,
-              text: TextSpan(
-                  text:
-                      "Sou formado em Ciência da Computação e pós-graduando em Desenvolvimento de Software com Java. Minha carreira na área iniciou em ",
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
-                        color: isThemeDark
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).primaryColorDark,
-                        fontSize: 20,
-                      ),
-                  children: [
-                    TextSpan(
-                      text: "2016",
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: isThemeDark
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).primaryColorDark,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    TextSpan(
-                        text:
-                            ", trabalhando em uma empresa de desenvolvimento como Assistente de Apoio ao Usuário. "),
-                    TextSpan(
-                      text: "Gosto dos desafios que a programação impõe, ",
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                            color: isThemeDark
-                                ? Theme.of(context).primaryColor
-                                : Theme.of(context).primaryColorDark,
-                            fontSize: 20,
-                          ),
-                    ),
-                    TextSpan(
-                      text: "resolver a dor de alguém ",
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: isThemeDark
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).primaryColorDark,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    TextSpan(
-                      text: "através de código ",
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                            color: isThemeDark
-                                ? Theme.of(context).primaryColor
-                                : Theme.of(context).primaryColorDark,
-                            fontSize: 20,
-                          ),
-                    ),
-                    TextSpan(
-                      text:
-                          "é tão satisfatório quanto beber uma xícara de café!",
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                            color: isThemeDark
-                                ? Theme.of(context).primaryColor
-                                : Theme.of(context).primaryColorDark,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ]),
-              // textAlign: TextAlign.justify,
+              text: buildSimpleTextSpan(
+                context,
+                isDarkTheme,
+                AppLocalizations.of(context)!.aboutMessage3,
+                children: [
+                  buildBoldSimpleTextSpan(
+                    context,
+                    isDarkTheme,
+                    AppLocalizations.of(context)!.aboutMessage4,
+                  ),
+                  buildSimpleTextSpan(
+                    context,
+                    isDarkTheme,
+                    AppLocalizations.of(context)!.aboutMessage5,
+                  ),
+                  buildBoldSimpleTextSpan(
+                    context,
+                    isDarkTheme,
+                    AppLocalizations.of(context)!.aboutMessage6,
+                  ),
+                  buildSimpleTextSpan(
+                    context,
+                    isDarkTheme,
+                    AppLocalizations.of(context)!.aboutMessage7,
+                  ),
+                  buildSimpleTextSpan(
+                    context,
+                    isDarkTheme,
+                    AppLocalizations.of(context)!.aboutMessage8,
+                  ),
+                  buildBoldSimpleTextSpan(
+                    context,
+                    isDarkTheme,
+                    AppLocalizations.of(context)!.aboutMessage9,
+                  )
+                ],
+              ),
             ),
           ),
         ],

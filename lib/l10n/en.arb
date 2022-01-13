@@ -1,0 +1,58 @@
+{
+    "@@locale": "en",
+    "projectTitle": "Portfolio",
+
+    "ptLanguage": "Portuguese",
+    "enLanguage": "English",
+
+    "appBarStart": "Start",
+    "appBarAbout": "About me",
+    "appBarExperience": "Experience",
+    "appBarContact": "Contact",
+
+    "aboutMessage1": "Hello, my full name is",
+    "aboutMessage2": "and I'm a full stack developer.",
+    "aboutMessage3": "I'm graduated in Computer Science and postgraduate in Development of Software in Java. My career started in ",
+    "aboutMessage4": "2016",
+    "aboutMessage5": ", working in a development company as an User Support Assistant. ",
+    "aboutMessage6": "I like challenges that the programming imposes, ",
+    "aboutMessage7": "resolve a pain of somebody ",
+    "aboutMessage8": "using programming code ",
+    "aboutMessage9": "is as satisfying as drinking a cup of coffee!",
+
+    "startMessage1": "Hi, my name is",
+    "startMessage2": "and I'm software developer",
+    "startButtonCV": "See CV",
+    "startButtonGitHub": "See GitHub",
+    "startButtonGitHubMobile": "See GitHub",
+
+    "companyKnowMoreButton": "Know more",
+    "companyCloseButton": "Close",
+    "companyDetail1": "A global leader in consulting, technology services and digital transformation, Capgemini is at the forefront of innovation to address the entire breadth of clients’ opportunities in the evolving world of cloud, digital and platforms.",
+    "companyDuration1": "Dec 2021 - Present",
+    "experienceTitle1": "Customized Solutions Consultant",
+    "experienceSubTitle1": "Until the moment",
+    "experienceDescription1": "I work in the frontend team of Bradesco Cards. Here we develop functionalities for an online card management platform for legal entities. We are using ReactJS technology, creating reusable components with libraries like Redux for state management.",
+
+    "companyDetail2": "Evoluum was born in 2018, as a software factory, by the hands of two people who realized that the traditional model of a software factory was outdated and problematic, because a factory normally generates source code, not value. It was then that they took on the challenge of evolving the way software is made through outsourcing.",
+    "companyDuration2": "Duration: 8 months",
+    "experienceTitle2": "Software Engineer",
+    "experienceSubTitle2": "May 2021 - Dec 2021",
+    "experienceDescription2": "I worked on a project with microservices using technologies such as Java and Spring-Boot, in which I worked as a full-stack developer, participating in all stages of development. We used Apache-Kafka for the communication between the microservices and Flutter for the development of the Konta application. I participated in continuous improvement meetings where we discussed as a team what would be the best approach to a given situation, we discussed our internal processes and what to do to improve it. I was just a dev within an amazing squad, we were always looking for our best, so we grew and developed our skills together.",
+
+    "companyDetail3": "Each Customer is unique and deserves exclusive service, the 'one to one' concept that respects the individuality of each organization is present in MICROSYS®'s more than 25 years of operation. Attentive to the evolution of market needs and always creating new ways to increase the potential for action of people and organizations, MICROSYS® constantly invests in the qualification and improvement of its professionals, developing innovative, dynamic and intuitive solutions.",
+    "companyDuration3": "Duration: 5yrs 3 months",
+    
+    "experienceTitle31": "Software Developer",
+    "experienceSubTitle31": "Aug 2020 - May 2021 · 10 mos",
+    "experienceDescription31": "I worked with the development and maintenance of commercial and industrial management systems. He was part of the company's Web and Mobile development team. I helped in the definition of technologies and patterns of systems projects. I tried to interact with colleagues in order to keep the atmosphere relaxed and welcoming, I understand that in this way communication between the team is greater and facilitates when I need to help or be helped. I had the opportunity to work in an amazing team, where I was able to put into practice several concepts and tools, as well as improve my soft skills with my friends.",
+    
+    "experienceTitle32": "Assistant of Programming",
+    "experienceSubTitle32": "May 2018 - Aug 2020 · 2 yrs 4 mos",
+    "experienceDescription32": "I worked with the development of Commercial Web applications and Industrial Technologies, using technologies in Java and JavaScript languages, making use of frameworks and libraries such as Spring-Boot, ReactJS and creating REST APIs, web and mobile applications.",
+    
+    "experienceTitle33": "Assistant of Helpdesk",
+    "experienceSubTitle33": "May 2016 - May 2018 · 2 yrs 1 mo",
+    "experienceDescription33": "I started my career in IT. I was already studying Computer Science and had some notion of programming logic. It didn't take me long to start getting my hands dirty, or rather, in the code! I developed personal projects with the technologies that I was studying in college, challenging myself from an early age."
+
+}

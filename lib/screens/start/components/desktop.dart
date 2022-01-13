@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constatants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/constants.dart';
 
 class DesktopFirstSectionHome extends StatelessWidget {
-  final Function verGithub;
-  final Function baixarCV;
+  final Function openGithub;
+  final Function openCV;
 
   const DesktopFirstSectionHome({
-    Key key,
-    @required this.verGithub,
-    @required this.baixarCV,
+    Key? key,
+    required this.openGithub,
+    required this.openCV,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
+    bool isDarkTheme = Get.isDarkMode;
 
     return Row(
       key: key,
@@ -24,7 +26,7 @@ class DesktopFirstSectionHome extends StatelessWidget {
             height: screenSize.height,
             width: screenSize.width * 0.5,
             child: Image.asset(
-              "assets/images/programador.png",
+              "assets/images/programmer.png",
               fit: BoxFit.contain,
             ),
           ),
@@ -41,12 +43,12 @@ class DesktopFirstSectionHome extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      "Olá, eu me chamo",
+                      AppLocalizations.of(context)!.startMessage1,
                       style: Theme.of(context).textTheme.headline4,
                     ),
                     Text(
-                      "Clediano",
-                      style: Theme.of(context).textTheme.headline2.copyWith(
+                      pDeveloperName,
+                      style: Theme.of(context).textTheme.headline2?.copyWith(
                             letterSpacing: 3,
                             color: Theme.of(context).accentColor,
                             fontWeight: FontWeight.bold,
@@ -54,7 +56,7 @@ class DesktopFirstSectionHome extends StatelessWidget {
                       textAlign: TextAlign.end,
                     ),
                     Text(
-                      "e sou desenvolvedor de software",
+                      AppLocalizations.of(context)!.startMessage2,
                       style: Theme.of(context).textTheme.headline4,
                     ),
                     SizedBox(height: 20),
@@ -65,73 +67,63 @@ class DesktopFirstSectionHome extends StatelessWidget {
                         children: [
                           ElevatedButton.icon(
                             onPressed: () {
-                              baixarCV();
+                              openCV();
                             },
                             icon: Icon(
                               Icons.cloud_download_outlined,
                             ),
                             label: Text(
-                              "BAIXAR CV",
+                              AppLocalizations.of(context)!
+                                  .startButtonCV
+                                  .toUpperCase(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25)),
+                            style: TextButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
                               ),
-                              padding:
-                                  MaterialStateProperty.all<EdgeInsetsGeometry>(
-                                EdgeInsets.symmetric(
-                                  horizontal: kDefaultPadding * 1.5,
-                                  vertical: kDefaultPadding * 0.8,
-                                ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: pDefaultPadding * 0.8,
+                                vertical: pDefaultPadding * 0.8,
                               ),
                             ),
                           ),
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           TextButton.icon(
                             onPressed: () {
-                              verGithub();
+                              openGithub();
                             },
                             icon: Icon(
                               Icons.explore,
-                              color: isThemeDark
+                              color: isDarkTheme
                                   ? Theme.of(context).primaryColorLight
                                   : Theme.of(context).primaryColorDark,
                             ),
                             label: Text(
-                              "VER GITHUB",
+                              AppLocalizations.of(context)!
+                                  .startButtonGitHub
+                                  .toUpperCase(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: isThemeDark
+                                color: isDarkTheme
                                     ? Theme.of(context).primaryColorLight
                                     : Theme.of(context).primaryColorDark,
                               ),
                             ),
-                            style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all<Color>(
-                                Colors.black12,
-                              ),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25),
-                                  side: BorderSide(
-                                    color: isThemeDark
-                                        ? Theme.of(context).primaryColorLight
-                                        : Theme.of(context).primaryColorDark,
-                                  ),
+                            style: TextButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                                side: BorderSide(
+                                  color: isDarkTheme
+                                      ? Theme.of(context).primaryColorLight
+                                      : Theme.of(context).primaryColorDark,
                                 ),
                               ),
-                              padding:
-                                  MaterialStateProperty.all<EdgeInsetsGeometry>(
-                                EdgeInsets.symmetric(
-                                  horizontal: kDefaultPadding * 1.5,
-                                  vertical: kDefaultPadding * 0.8,
-                                ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: pDefaultPadding * 0.8,
+                                vertical: pDefaultPadding * 0.8,
                               ),
                             ),
                           ),

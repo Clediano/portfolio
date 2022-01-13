@@ -1,46 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/constants.dart';
+import 'package:portfolio/store/store.dart';
 
-class Logotipo extends StatelessWidget {
-  const Logotipo({
-    Key key,
-    @required this.isThemeDark,
-    @required double opacity,
-  })  : _opacity = opacity,
-        super(key: key);
-
-  final bool isThemeDark;
-  final double _opacity;
+class Logotype extends StatelessWidget {
+  final store = Get.put(Store());
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkTheme = Get.isDarkMode;
+
     return RichText(
       text: TextSpan(
         children: [
           TextSpan(
             text: "< ",
             style: TextStyle(
-              color: isThemeDark
+              color: isDarkTheme
                   ? Colors.white
-                  : _opacity > 0.4
+                  : store.getMenuOpacity > 0.4
                       ? Theme.of(context).primaryColorLight
                       : Theme.of(context).primaryColorDark,
             ),
           ),
           TextSpan(
-            text: 'CLEDIANO',
+            text: pDeveloperName.toUpperCase(),
             style: TextStyle(
               fontWeight: FontWeight.w200,
-              letterSpacing: 3,
-              fontSize: 22,
+              letterSpacing: 1.5,
+              fontSize: 17,
               color: Theme.of(context).accentColor,
             ),
           ),
           TextSpan(
             text: ' />',
             style: TextStyle(
-              color: isThemeDark
+              color: isDarkTheme
                   ? Colors.white
-                  : _opacity > 0.4
+                  : store.getMenuOpacity > 0.4
                       ? Theme.of(context).primaryColorLight
                       : Theme.of(context).primaryColorDark,
             ),

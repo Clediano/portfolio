@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constatants.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/constants.dart';
 
-class TopbarItem extends StatelessWidget {
-  final Function onHover;
-  final Function onClick;
+class TopBarItem extends StatelessWidget {
+  final void Function(bool) onHover;
+  final void Function() onClick;
   final double opacity;
   final bool isHovering;
   final String title;
 
-  const TopbarItem({
-    Key key,
-    this.onHover,
-    @required this.opacity,
-    this.isHovering,
-    @required this.title,
-    @required this.onClick,
+  const TopBarItem({
+    Key? key,
+    required this.onHover,
+    required this.opacity,
+    required this.isHovering,
+    required this.title,
+    required this.onClick,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
+    bool isDarkTheme = Get.isDarkMode;
     Color colorButton =
         opacity > 0.4 ? Theme.of(context).primaryColorLight : Colors.black87;
 
@@ -31,14 +32,14 @@ class TopbarItem extends StatelessWidget {
       },
       onTap: onClick,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        padding: const EdgeInsets.symmetric(horizontal: pDefaultPadding),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               title,
               style: TextStyle(
-                color: isThemeDark ? Colors.white : colorButton,
+                color: isDarkTheme ? Colors.white : colorButton,
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
               ),
@@ -52,7 +53,7 @@ class TopbarItem extends StatelessWidget {
               child: Container(
                 height: 2,
                 width: 20,
-                color: isThemeDark ? Colors.white : colorButton,
+                color: isDarkTheme ? Colors.white : colorButton,
               ),
             )
           ],

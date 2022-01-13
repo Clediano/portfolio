@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DrawerItem extends StatefulWidget {
   final String title;
-  final Function onClick;
+  final void Function() onClick;
   final bool isSelected;
 
   const DrawerItem({
-    Key key,
+    Key? key,
     this.title = "Title",
-    @required this.onClick,
+    required this.onClick,
     this.isSelected = false,
   }) : super(key: key);
 
@@ -21,7 +22,7 @@ class _DrawerItemState extends State<DrawerItem> {
 
   @override
   Widget build(BuildContext context) {
-    bool isThemeDark = Theme.of(context).brightness == Brightness.dark;
+    bool isDarkTheme = Get.isDarkMode;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -38,14 +39,14 @@ class _DrawerItemState extends State<DrawerItem> {
                 Text(
                   widget.title,
                   style: TextStyle(
-                    color: isThemeDark
+                    color: isDarkTheme
                         ? Colors.white
                         : Theme.of(context).primaryColorLight,
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Visibility(
                   maintainAnimation: true,
                   maintainState: true,

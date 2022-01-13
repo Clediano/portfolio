@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/models/offset_screen.dart';
+import 'package:portfolio/store/store.dart';
 
-double _getPositionOfWidget(GlobalKey key, ScrollController scrollController) {
-  final RenderBox render = key.currentContext.findRenderObject();
-  Offset position = render.localToGlobal(Offset.zero);
+void scrollToPosition(String screenName) {
+  final store = Get.put(Store());
 
-  double scrollPosition = scrollController.position.pixels;
+  double offset = store.getAllOffsetScreen
+      .firstWhere((OffsetScreen element) => element.screenName == screenName)
+      .offset
+      .dy - 60;
 
-  /**Posição da barra de rolgem + quantos pixels falta para chegar até o widget que eu quero(pode ser negativo) - altura do Appbar */
-  return scrollPosition + position.dy - 56;
-}
-
-void scrollToPosition(GlobalKey keyWidget, ScrollController scrollController) {
-  scrollController.animateTo(_getPositionOfWidget(keyWidget, scrollController),
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.fastLinearToSlowEaseIn);
+  store.getScrollController.animateTo(
+    offset,
+    duration: const Duration(milliseconds: 500),
+    curve: Curves.fastLinearToSlowEaseIn,
+  );
 }
