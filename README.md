@@ -5,6 +5,7 @@ O projeto é um portfólio pessoal desenvolvido com o objetivo de estudar e trei
 ##### O portfólio está disponível aqui [Portfólio](https://portfolio-d2ae1.firebaseapp.com/#/)
 
 ### Implementações futuras
+- Criar página demonstrar exemplos de projetos já desenvolvidos.
 - Permitir que pessoam possam escrever artigos e submeterem para publicação.
 - Usar Firebase para armazenar os textos e Storage para as imagens.
 
@@ -14,6 +15,7 @@ O projeto é um portfólio pessoal desenvolvido com o objetivo de estudar e trei
 ### Observações
 - Tive o cuidado de mantem a acessibilidade;
 - Adicionei a funcionalidade de trocar o thema entre Dark e Light;
+- Adicionei internacionalização, entre inglês e português.
 
 ### Imagens do projeto
 Clique no [link](https://portfolio-d2ae1.firebaseapp.com/#/) e seja pessoalmente ;)

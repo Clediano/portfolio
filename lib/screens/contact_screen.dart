@@ -3,8 +3,8 @@ import 'package:portfolio/common/responsive.dart';
 import 'package:portfolio/components/info_text.dart';
 import 'package:portfolio/constants.dart';
 
-class Contact extends StatelessWidget {
-  const Contact({
+class ContactScreen extends StatelessWidget {
+  const ContactScreen({
     Key? key,
   }) : super(key: key);
 

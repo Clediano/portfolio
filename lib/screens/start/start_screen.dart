@@ -5,8 +5,8 @@ import 'package:portfolio/screens/start/components/mobile.dart';
 import 'package:portfolio/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class FirstSectionHomeScreen extends StatelessWidget {
-  const FirstSectionHomeScreen({Key? key}) : super(key: key);
+class StartScreen extends StatelessWidget {
+  const StartScreen({Key? key}) : super(key: key);
 
   void _openCV() {
     launch(pCVLink, universalLinksOnly: true);

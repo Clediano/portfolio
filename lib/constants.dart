@@ -17,6 +17,7 @@ const startScreen = 'start_screen';
 const aboutScreen = 'about_screen';
 const experienceScreen = 'experience_screen';
 const contactScreen = 'contact_screen';
+const projectScreen = 'project_screen';
 
 
 final pDefaultShadow = BoxShadow(

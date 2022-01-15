@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:portfolio/components/avatar.dart';
 import 'package:portfolio/constants.dart';
 
-class About extends StatelessWidget {
-  const About({
+class AboutScreen extends StatelessWidget {
+  const AboutScreen({
     Key? key,
   }) : super(key: key);
 

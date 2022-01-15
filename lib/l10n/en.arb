@@ -9,6 +9,7 @@
     "appBarAbout": "About me",
     "appBarExperience": "Experience",
     "appBarContact": "Contact",
+    "appBarProject": "Works",
 
     "aboutMessage1": "Hello, my full name is",
     "aboutMessage2": "and I'm a full stack developer.",

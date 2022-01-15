@@ -55,15 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: Appbar(),
-      drawer: DrawerMenu(),
+      appBar: const Appbar(),
+      drawer: const DrawerMenu(),
       body: SingleChildScrollView(
         controller: _scrollController,
         physics: ClampingScrollPhysics(),
         child: Column(
           children: [
             GetBoxOffset(
-              child: const FirstSectionHomeScreen(),
+              child: const StartScreen(),
               screen: startScreen,
             ),
             GetBoxOffset(
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Theme.of(context).primaryColorLight,
                 textColor: Theme.of(context).primaryColorDark,
                 titleColor: Theme.of(context).primaryColorDark,
-                body: const About(),
+                body: const AboutScreen(),
               ),
               screen: aboutScreen,
             ),
@@ -95,10 +95,16 @@ class _HomeScreenState extends State<HomeScreen> {
             GetBoxOffset(
               child: SectionBody(
                 title: AppLocalizations.of(context)!.appBarContact,
-                backgroundColor: Theme.of(context).primaryColorLight,
-                textColor: Theme.of(context).primaryColorDark,
-                titleColor: Theme.of(context).primaryColorDark,
-                body: const Contact(),
+                textColor: isDarkTheme
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
+                titleColor: isDarkTheme
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
+                backgroundColor: isDarkTheme
+                    ? Theme.of(context).backgroundColor
+                    : Colors.white,
+                body: const ContactScreen(),
               ),
               screen: contactScreen,
             ),
