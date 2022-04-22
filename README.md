@@ -5,10 +5,8 @@ O projeto é um portfólio pessoal desenvolvido com o objetivo de estudar e trei
 ##### O portfólio está disponível aqui [Portfólio](https://portfolio-d2ae1.firebaseapp.com/#/)
 
 ### Implementações futuras
-- Criar página demonstrar exemplos de projetos já desenvolvidos.
-- Permitir que pessoam possam escrever artigos e submeterem para publicação.
-- Usar Firebase para armazenar os textos e Storage para as imagens.
-
+- Criar página para demonstrar exemplos de projetos já desenvolvidos.
+- Permitir que pessoam possam escrever artigos e submeterem para publicação(utilização de CMS).
 
 ![](https://raw.githubusercontent.com/Clediano/portfolio/main/web/icons/icon_192.png)
 
