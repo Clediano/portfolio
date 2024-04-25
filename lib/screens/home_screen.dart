@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: const Appbar(),
       drawer: const DrawerMenu(),
       body: SingleChildScrollView(
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? Theme.of(context).primaryColorLight
                     : Theme.of(context).primaryColorDark,
                 backgroundColor: isDarkTheme
-                    ? Theme.of(context).backgroundColor
+                    ? Theme.of(context).colorScheme.background
                     : Colors.white,
                 body: const ExperienceScreen(),
               ),
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? Theme.of(context).primaryColorLight
                     : Theme.of(context).primaryColorDark,
                 backgroundColor: isDarkTheme
-                    ? Theme.of(context).backgroundColor
+                    ? Theme.of(context).colorScheme.background
                     : Colors.white,
                 body: const ContactScreen(),
               ),

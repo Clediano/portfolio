@@ -64,7 +64,7 @@ class MobileFirstSectionHome extends StatelessWidget {
                   pDeveloperName,
                   style: Theme.of(context).textTheme.headline2?.copyWith(
                         letterSpacing: 3,
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).highlightColor,
                         fontWeight: FontWeight.bold,
                       ),
                   textAlign: TextAlign.end,

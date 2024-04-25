@@ -19,7 +19,6 @@ const experienceScreen = 'experience_screen';
 const contactScreen = 'contact_screen';
 const projectScreen = 'project_screen';
 
-
 final pDefaultShadow = BoxShadow(
   offset: Offset(0, 50),
   blurRadius: 50,
@@ -39,16 +38,16 @@ const pDefaultOutlineInputBorder = OutlineInputBorder(
 );
 
 final pLightTheme = ThemeData(
-  backgroundColor: Colors.white,
+  useMaterial3: false,
   cardColor: Colors.blueGrey.shade50,
-  accentColor: Colors.deepPurpleAccent,
+  highlightColor: Colors.deepPurpleAccent,
   primarySwatch: Colors.blueGrey,
   brightness: Brightness.light,
   fontFamily: 'Josefin Slab',
   bottomAppBarColor: Colors.blueGrey.shade900,
   iconTheme: IconThemeData(color: Colors.blueGrey),
   colorScheme: ColorScheme.fromSwatch(
-    accentColor: Colors.deepPurpleAccent,
+    backgroundColor: Colors.white,
     cardColor: Colors.blueGrey.shade50,
     primarySwatch: Colors.blueGrey,
   ),
@@ -70,20 +69,17 @@ final pLightTheme = ThemeData(
 );
 
 final pDarkTheme = ThemeData(
-  backgroundColor: Colors.blueGrey.shade900,
   cardColor: Colors.black87,
-  accentColor: Colors.deepPurpleAccent,
+  highlightColor: Colors.deepPurpleAccent,
   primarySwatch: Colors.blueGrey,
   brightness: Brightness.dark,
   fontFamily: 'Josefin Slab',
   bottomAppBarColor: Colors.black,
   iconTheme: IconThemeData(color: Colors.blueGrey.shade200),
   colorScheme: ColorScheme.fromSwatch(
-    brightness: Brightness.dark,
-    accentColor: Colors.deepPurpleAccent,
-    primarySwatch: Colors.blueGrey,
-    backgroundColor: Colors.blueGrey.shade900
-  ),
+      brightness: Brightness.dark,
+      primarySwatch: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey.shade900),
   primaryTextTheme: TextTheme(
     button: TextStyle(
       color: Colors.blueGrey[200],

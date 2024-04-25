@@ -29,7 +29,7 @@ class Logotype extends StatelessWidget {
               fontWeight: FontWeight.w200,
               letterSpacing: 1.5,
               fontSize: 17,
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).highlightColor,
             ),
           ),
           TextSpan(
